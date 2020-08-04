@@ -127,7 +127,7 @@ RUN set -xe && \
 WORKDIR /usr/local/ffmpeg_sources
 RUN set -xe && \
     git -C nv-codec-headers pull 2> /dev/null || \
-        git clone https://github.com/FFmpeg/nv-codec-headers && \
+        git clone https://github.com/FFmpeg/nv-codec-headers -b n9.1.23.1 && \
     cd nv-codec-headers && \
     make -j$(nproc) && \
     make install
