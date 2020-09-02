@@ -15,7 +15,7 @@ while read line; do
   docker run --runtime nvidia --rm -v $1:/tmp ffmpeg -i "/tmp/$FILE_BEFORE" -vcodec h264_nvenc -y "/tmp/$FILE_AFTER"
   if [ $? -eq 0 ]; then
     # 成功したら削除
-    rm -f $1/$FILE_BEFORE
+    rm -rf "$1/$FILE_BEFORE"
   fi 
 done <<END
 $FILES
